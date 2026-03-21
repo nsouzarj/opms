@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Projetos | Portfolio</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --accent: #4f46e5;
+            --accent-light: #6366f1;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --radius: 28px;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            /* Fundo Animado Sutil */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #0f172a 0%, #475569 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            width: 90%;
+            max-width: 1200px;
+            animation: slideUp 1s ease-out;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent) 0%, transparent 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: rgba(99, 102, 241, 0.3);
+            box-shadow: 0 30px 60px -12px rgba(99, 102, 241, 0.15);
+        }
+
+        .project-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: var(--transition);
+        }
+
+        .project-card:hover .icon-box {
+            background: var(--accent);
+            transform: rotate(-10deg);
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-light);
+            background: rgba(99, 102, 241, 0.1);
+            padding: 6px 14px;
+            border-radius: 100px;
+            width: fit-content;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .card-links {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .action-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--accent);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .action-link:hover {
+            gap: 12px;
+            color: var(--accent-light);
+        }
+
+        .github-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .github-link:hover {
+            color: var(--accent);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            h1 { font-size: 2.2rem; }
+        }
+
+        /* Rodapé de Contato */
+        footer {
+            margin-top: 5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            animation: fadeIn 1.5s ease-out;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 800px;
+            border-radius: var(--radius);
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .contact-btn:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>APLICAÇÕES</h1>
+        <p>Hub de Aplicações de Alta Performance</p>
+    </header>
+
+    <div class="container">
+        <!-- Projeto Clinipet -->
+        <div class="project-card">
+            <div class="icon-box">🐾</div>
+            <span class="tag">Gestão Veterinária</span>
+            <h2>Clinipet</h2>
+            <p class="desc">Ecossistema completo para gestão de clínicas veterinárias, prontuários digitais e controle de vacinação em tempo real.</p>
+            <div class="card-links">
+                <a href="/clinipet" class="action-link">Abrir App ➜</a>
+                <a href="https://github.com/nsouzarj/frontend" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+
+        <!-- Projeto SISGECOL (Link Externo) -->
+        <div class="project-card">
+            <div class="icon-box">👥</div>
+            <span class="tag">Gestão de Solicitações</span>
+            <h2>SISGECOL</h2>
+            <p class="desc">Sistema de Gerenciamento de Colaboradores. Plataforma robusta para controle administrativo e monitoramento de equipes.</p>
+            <div class="card-links">
+                <a href="https://cra-frontend-brio.onrender.com/" target="_blank" class="action-link">Acessar Sistema ➜</a>
+                <a href="https://github.com/nsouzarj/sisgecol" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+
+        <!-- Projeto Loja Produtos -->
+        <div class="project-card">
+            <div class="icon-box">🛍️</div>
+            <span class="tag">Ecommerce</span>
+            <h2>Loja Virtus</h2>
+            <p class="desc">Plataforma de e-commerce de luxo com vitrine inteligente, compressão de imagens e integração serverless.</p>
+            <div class="card-links">
+                <a href="/lojaprodutos" class="action-link">Abrir Loja ➜</a>
+                <a href="https://github.com/nsouzarj/lojaprodutos" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+
+        <!-- Projeto Finanças -->
+        <div class="project-card">
+            <div class="icon-box">💰</div>
+            <span class="tag">Sistema de Controle Financeiro</span>
+            <h2>Finanças</h2>
+            <p class="desc">Plataforma de controle financeiro simples pra uso pessoal ou empresarial do dia a dia.</p>
+            <div class="card-links">
+                <a href="/financas" class="action-link">Ir para o aplicativo ➜</a>
+                <a href="https://github.com/nsouzarj/my-app" target="_blank" class="github-link"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+        </div>
+
+        <!-- Projeto Vanessa Landpage -->
+        <div class="project-card">
+            <div class="icon-box">🌿</div>
+            <span class="tag">Landing Page Premium</span>
+            <h2>Vanessa Passos</h2>
+            <p class="desc">Design exclusivo e focado em conversão para apresentação profissional e serviços personalizados.</p>
+            <div class="card-links">
+                <a href="/landpage-vanessa/" target="_blank" class="action-link">Ver Landing Page ➜</a>
+            </div>
+        </div>
+
+        <!-- Projeto OPM Advogados (Externo) -->
+        <div class="project-card">
+            <div class="icon-box">⚖️</div>
+            <span class="tag">Website Jurídico</span>
+            <h2>OPM Advogados</h2>
+            <p class="desc">Plataforma corporativa com design sofisticado e experiência premium para advocacia de alta performance.</p>
+            <div class="card-links">
+                <a href="/opm/" target="_blank" class="action-link">Acessar Projeto ➜</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <h3 class="footer-title">Vamos impulsionar o seu próximo projeto? 🚀</h3>
+        <p class="footer-desc">Precisa de uma solução sob medida de alta performance e design sofisticado? Entre em contato agora mesmo e vamos transformar ideias em resultados impressionantes.</p>
+        
+        <div class="contact-links">
+            <a href="mailto:nsouzarj@outlook.com" class="contact-btn">
+                <span>✉️</span> nsouzarj@outlook.com
+            </a>
+            <a href="https://wa.me/5521982751433" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                <span>📱</span> (21) 98275-1433
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
