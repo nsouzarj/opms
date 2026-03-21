@@ -20,7 +20,7 @@
             --text-primary: #0f172a;
             --text-secondary: #475569;
             --radius: 28px;
-            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition: all 4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
@@ -48,26 +48,199 @@
 
         header {
             text-align: center;
+            padding: 8rem 2rem;
             margin-bottom: 4rem;
-            animation: fadeIn 1s ease-out;
+            animation: fadeInHero 4s ease-out forwards;
+            width: 100%;
+            position: relative;
+            background: url('hero-tech.png') center/cover no-repeat;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
         }
 
-        h1 {
-            font-size: clamp(2.5rem, 8vw, 3.5rem);
+        @keyframes fadeInHero {
+            0% { opacity: 0; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(79, 70, 229, 0.4) 100%);
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        header > * {
+            position: relative;
+            z-index: 2;
+        }
+
+                h1 {
+            font-size: clamp(2.5rem, 8vw, 3.8rem);
             font-weight: 800;
-            letter-spacing: -2px;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #0f172a 0%, #475569 100%);
+            letter-spacing: -1.5px;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1.1;
         }
 
         header p {
-            color: var(--text-secondary);
-            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.4rem;
             font-weight: 300;
+            max-width: 800px;
+            margin: 0 auto;
         }
+
+
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            margin-top: 6rem;
+        }
+
+        .section-title-alt {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        /* Services Grid */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            width: 90%;
+            max-width: 1200px;
+            margin-bottom: 6rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: var(--radius);
+            padding: 2rem;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            text-align: left;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        /* Process Section */
+        .process-section {
+            width: 100%;
+            background: white;
+            padding: 6rem 0;
+            margin: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            width: 90%;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-num {
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(79, 70, 229, 0.08);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .process-step h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+            max-width: 1000px;
+            width: 90%;
+        }
+
+        .tech-badge {
+            padding: 8px 20px;
+            background: white;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: var(--transition);
+        }
+
+        .tech-badge:hover {
+            color: var(--accent);
+            border-color: var(--accent-light);
+            transform: scale(1.05);
+        }
+
+        /* Case Studies Container adjustment */
+        .case-studies-header {
+            width: 90%;
+            max-width: 1200px;
+            margin-bottom: 2rem;
+        }
+
 
         .container {
             display: grid;
@@ -273,9 +446,99 @@
 <body>
 
     <header>
-        <h1>APLICAÇÕES</h1>
-        <p>Hub de Aplicações de Alta Performance</p>
+        <h1>SISTEMAS E SOLUÇÕES TECH</h1>
+        <p>Transformo desafios complexos em soluções digitais escaláveis, seguras e com design sofisticado. Do conceito ao deploy.</p>
+        <div style="margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center;">
+            <a href="https://wa.me/5521982751433" target="_blank" class="contact-btn" style="background: var(--accent); color: white;">
+                Solicitar Orçamento ➜
+            </a>
+            <a href="#portfolio" class="contact-btn">
+                Ver Portfólio
+            </a>
+        </div>
     </header>
+
+    <!-- Services Section -->
+    <div class="section-header">
+        <h2 class="section-title-alt">Soluções Especializadas</h2>
+        <p style="color: var(--text-secondary);">Ofereço expertise em diversas verticais de tecnologia para impulsionar seu negócio.</p>
+    </div>
+
+    <div class="services-container">
+        <div class="service-card">
+            <span class="service-icon">🏗️</span>
+            <h3>Sistemas Corporativos</h3>
+            <p class="desc">Desenvolvimento de ERPs, CRMs e plataformas de gestão sob medida para otimizar processos e reduzir custos operacionais.</p>
+        </div>
+        <div class="service-card">
+            <span class="service-icon">⚡</span>
+            <h3>Web Apps de Alta Performance</h3>
+            <p class="desc">Aplicações modernas utilizando Next.js e Cloud Computing, garantindo velocidade máxima e SEO de primeira linha.</p>
+        </div>
+        <div class="service-card">
+            <span class="service-icon">🛒</span>
+            <h3>E-commerce & Lojas Virtuais</h3>
+            <p class="desc">Plataformas de venda com vitrines inteligentes e integração completa de pagamentos e logística.</p>
+        </div>
+        <div class="service-card">
+            <span class="service-icon">🎨</span>
+            <h3>Landing Pages Premium</h3>
+            <p class="desc">Design UX/UI sofisticado focado em conversão e autoridade de marca para profissionais e empresas.</p>
+        </div>
+    </div>
+
+    <!-- Process Section -->
+    <div class="process-section">
+        <div class="section-header" style="margin-top: 0;">
+            <h2 class="section-title-alt">Nosso Processo de Excelência</h2>
+            <p style="color: var(--text-secondary);">Uma metodologia transparente e iterativa para garantir o sucesso do seu projeto.</p>
+        </div>
+        
+        <div class="process-grid">
+            <div class="process-step">
+                <span class="step-num">01</span>
+                <h4>Descoberta</h4>
+                <p>Análise profunda das necessidades e objetivos do seu negócio.</p>
+            </div>
+            <div class="process-step">
+                <span class="step-num">02</span>
+                <h4>Estratégia & UX</h4>
+                <p>Criação de protótipos focados na experiência e jornada do usuário.</p>
+            </div>
+            <div class="process-step">
+                <span class="step-num">03</span>
+                <h4>Desenvolvimento</h4>
+                <p>Codificação robusta com as melhores práticas de engenharia.</p>
+            </div>
+            <div class="process-step">
+                <span class="step-num">04</span>
+                <h4>Deploy & Suporte</h4>
+                <p>Entrega otimizada e acompanhamento contínuo da solução.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tech Stack Section -->
+    <div class="section-header" style="margin-top: 4rem; margin-bottom: 2rem;">
+        <h2 class="section-title-alt">Tecnologias de Ponta</h2>
+    </div>
+    <div class="tech-stack">
+        <span class="tech-badge">Java / Kotlin (Spring Boot)</span>
+        <span class="tech-badge">Python</span>
+        <span class="tech-badge">React / Next.js</span>
+        <span class="tech-badge">Node.js</span>
+        <span class="tech-badge">TypeScript</span>
+        <span class="tech-badge">PostgreSQL</span>
+        <span class="tech-badge">Supabase</span>
+        <span class="tech-badge">Docker</span>
+        <span class="tech-badge">AWS / Vercel</span>
+    </div>
+
+    <!-- Portfolio Header -->
+    <div id="portfolio" class="section-header">
+        <h2 class="section-title-alt">Portfólio de Cases</h2>
+        <p style="color: var(--text-secondary);">Abaixo, alguns dos projetos e aplicações desenvolvidos recentemente.</p>
+    </div>
 
     <div class="container">
         <!-- Projeto Clinipet -->
@@ -359,13 +622,45 @@
         
         <div class="contact-links">
             <a href="mailto:nsouzarj@outlook.com" class="contact-btn">
-                <span>✉️</span> nsouzarj@outlook.com
+                <i class="fas fa-envelope"></i> nsouzarj@outlook.com
             </a>
             <a href="https://wa.me/5521982751433" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                <span>📱</span> (21) 98275-1433
+                <i class="fab fa-whatsapp"></i> (21) 98275-1433
             </a>
         </div>
     </footer>
 
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Target elements for animation
+        const animatedElements = document.querySelectorAll('.service-card, .process-step, .project-card, .section-header, .tech-badge');
+        
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 4s cubic-bezier(0.16, 1, 0.3, 1)';
+            observer.observe(el);
+        });
+
+        // Add index-based delay for grid items
+        document.querySelectorAll('.services-container > div, .process-grid > div, .container > div').forEach((el, index) => {
+            el.style.transitionDelay = `${(index % 4) * 0.1}s`;
+        });
+    </script>
 </body>
 </html>
