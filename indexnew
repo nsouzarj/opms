@@ -823,7 +823,7 @@
             <h2>OPM Advogados</h2>
             <p class="desc" data-i18n="case_opm_desc">Plataforma corporativa com design sofisticado e experiência premium para advocacia de alta performance.</p>
             <div class="card-links">
-                <a href="/opm/" target="_blank" rel="noopener noreferrer" class="action-link" title="Acessar OPM Advogados" aria-label="Acessar site institucional da OPM Advogados" data-i18n="case_access_proj">Acessar Projeto ➜</a>
+                <a href="https://opmadvogados.com.br/" target="_blank" rel="noopener noreferrer" class="action-link" title="Acessar OPM Advogados" aria-label="Acessar site institucional da OPM Advogados" data-i18n="case_access_proj">Acessar Projeto ➜</a>
                 <a href="https://github.com/nsouzarj/opms" target="_blank" class="github-link" rel="noopener me" title="Ver no GitHub" aria-label="Ver repositório da OPM Advogados no GitHub"><i class="fab fa-github"></i> GitHub</a>
             </div>
         </div>

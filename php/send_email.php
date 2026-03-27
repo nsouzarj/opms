@@ -45,16 +45,16 @@ if (file_exists($baseDir . 'PHPMailer.php')) {
     try {
         // --- 1. CONFIGURAÇÃO DO SERVIDOR SMTP ---
         $mail->isSMTP();
-        $mail->Host = 'email-ssl.com.br';
+       // $mail->Host = 'email-ssl.com.br';
         $mail->SMTPAuth = true;
-        $mail->Username = 'contato@opmadvogados.com.br';
-        $mail->Password = 'Sucesso2018';
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port = 465;
-        $mail->CharSet = 'UTF-8';
+       // $mail->Username = 'contato@opmadvogados.com.br';
+       // $mail->Password = 'Sucesso2018';
+       // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+       // $mail->Port = 465;
+       // $mail->CharSet = 'UTF-8';
 
         // --- 2. ENVIO PARA OS SÓCIOS (Vários destinatários) ---
-        $mail->setFrom('contato@opmadvogados.com.br', 'Site OPM Advogados');
+        //$mail->setFrom('contato@opmadvogados.com.br', 'Site OPM Advogados');
         
         $destinatarios = [
             'gabriela.bastos@opmadvogados.com.br',
