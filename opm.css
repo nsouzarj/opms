@@ -148,7 +148,7 @@ header.scrolled .logo img {
 /* Hero */
 .hero {
     height: 100vh;
-    background: url('assets/hero-bg.jpg') center/cover no-repeat;
+    background: url('assets/hero-bg.jpg?v=20260409') center/cover no-repeat;
     display: flex;
     align-items: center;
     position: relative;
@@ -346,7 +346,7 @@ header.scrolled .logo img {
 
 /* Portfolio CTA */
 .portfolio-cta {
-    background: linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.9)), url('assets/equipe.png');
+    background: linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.9)), url('assets/equipe.png?v=20260409');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -412,7 +412,7 @@ header.scrolled .logo img {
 /* Quote Section */
 .quote-section {
     padding: 120px 0;
-    background: linear-gradient(rgba(10, 15, 30, 0.9), rgba(10, 15, 30, 0.9)), url('assets/quote-bg.jpg');
+    background: linear-gradient(rgba(10, 15, 30, 0.9), rgba(10, 15, 30, 0.9)), url('assets/quote-bg.jpg?v=20260409');
     background-size: cover;
     background-position: center;
     color: var(--white);
